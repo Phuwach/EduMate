@@ -1,0 +1,324 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		710067411E89504F0074CFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710067401E89504F0074CFED /* AppDelegate.swift */; };
+		710067431E89504F0074CFED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710067421E89504F0074CFED /* ViewController.swift */; };
+		710067461E89504F0074CFED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 710067441E89504F0074CFED /* Main.storyboard */; };
+		710067481E89504F0074CFED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710067471E89504F0074CFED /* Assets.xcassets */; };
+		7100674B1E89504F0074CFED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 710067491E89504F0074CFED /* LaunchScreen.storyboard */; };
+		7107FC441E897180003F6E93 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107FC431E897180003F6E93 /* MenuViewController.swift */; };
+		7107FC461E89779F003F6E93 /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107FC451E89779F003F6E93 /* SubjectViewController.swift */; };
+		7107FC481E898A46003F6E93 /* xx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7107FC471E898A46003F6E93 /* xx.jpg */; };
+		7164C69B1E8BAC6800028E75 /* flat-face-icon-23.png in Resources */ = {isa = PBXBuildFile; fileRef = 7164C69A1E8BAC6800028E75 /* flat-face-icon-23.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7100673D1E89504F0074CFED /* EduMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		710067401E89504F0074CFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		710067421E89504F0074CFED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		710067451E89504F0074CFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		710067471E89504F0074CFED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7100674A1E89504F0074CFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7100674C1E89504F0074CFED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7107FC431E897180003F6E93 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		7107FC451E89779F003F6E93 /* SubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
+		7107FC471E898A46003F6E93 /* xx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = xx.jpg; path = ../../../xx.jpg; sourceTree = "<group>"; };
+		7164C69A1E8BAC6800028E75 /* flat-face-icon-23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flat-face-icon-23.png"; path = "../../../flat-face-icon-23.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7100673A1E89504F0074CFED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		710067341E89504F0074CFED = {
+			isa = PBXGroup;
+			children = (
+				7100673F1E89504F0074CFED /* EduMate */,
+				7100673E1E89504F0074CFED /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7100673E1E89504F0074CFED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7100673D1E89504F0074CFED /* EduMate.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7100673F1E89504F0074CFED /* EduMate */ = {
+			isa = PBXGroup;
+			children = (
+				710067401E89504F0074CFED /* AppDelegate.swift */,
+				710067421E89504F0074CFED /* ViewController.swift */,
+				710067441E89504F0074CFED /* Main.storyboard */,
+				7164C69A1E8BAC6800028E75 /* flat-face-icon-23.png */,
+				7107FC471E898A46003F6E93 /* xx.jpg */,
+				710067471E89504F0074CFED /* Assets.xcassets */,
+				710067491E89504F0074CFED /* LaunchScreen.storyboard */,
+				7100674C1E89504F0074CFED /* Info.plist */,
+				7107FC431E897180003F6E93 /* MenuViewController.swift */,
+				7107FC451E89779F003F6E93 /* SubjectViewController.swift */,
+			);
+			path = EduMate;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7100673C1E89504F0074CFED /* EduMate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7100674F1E89504F0074CFED /* Build configuration list for PBXNativeTarget "EduMate" */;
+			buildPhases = (
+				710067391E89504F0074CFED /* Sources */,
+				7100673A1E89504F0074CFED /* Frameworks */,
+				7100673B1E89504F0074CFED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EduMate;
+			productName = EduMate;
+			productReference = 7100673D1E89504F0074CFED /* EduMate.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		710067351E89504F0074CFED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Phuwach;
+				TargetAttributes = {
+					7100673C1E89504F0074CFED = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 876M3Q56X3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 710067381E89504F0074CFED /* Build configuration list for PBXProject "EduMate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 710067341E89504F0074CFED;
+			productRefGroup = 7100673E1E89504F0074CFED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7100673C1E89504F0074CFED /* EduMate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7100673B1E89504F0074CFED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7100674B1E89504F0074CFED /* LaunchScreen.storyboard in Resources */,
+				7107FC481E898A46003F6E93 /* xx.jpg in Resources */,
+				710067481E89504F0074CFED /* Assets.xcassets in Resources */,
+				7164C69B1E8BAC6800028E75 /* flat-face-icon-23.png in Resources */,
+				710067461E89504F0074CFED /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		710067391E89504F0074CFED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				710067431E89504F0074CFED /* ViewController.swift in Sources */,
+				7107FC461E89779F003F6E93 /* SubjectViewController.swift in Sources */,
+				7107FC441E897180003F6E93 /* MenuViewController.swift in Sources */,
+				710067411E89504F0074CFED /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		710067441E89504F0074CFED /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				710067451E89504F0074CFED /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		710067491E89504F0074CFED /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7100674A1E89504F0074CFED /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7100674D1E89504F0074CFED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7100674E1E89504F0074CFED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		710067501E89504F0074CFED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 876M3Q56X3;
+				INFOPLIST_FILE = EduMate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.phuwach.EduMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		710067511E89504F0074CFED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 876M3Q56X3;
+				INFOPLIST_FILE = EduMate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = th.co.phuwach.EduMate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		710067381E89504F0074CFED /* Build configuration list for PBXProject "EduMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7100674D1E89504F0074CFED /* Debug */,
+				7100674E1E89504F0074CFED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7100674F1E89504F0074CFED /* Build configuration list for PBXNativeTarget "EduMate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				710067501E89504F0074CFED /* Debug */,
+				710067511E89504F0074CFED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 710067351E89504F0074CFED /* Project object */;
+}
