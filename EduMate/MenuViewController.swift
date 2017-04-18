@@ -9,35 +9,53 @@
 import UIKit
 
 class SubjectTableViewCell: UITableViewCell {
-    @IBOutlet weak var Label_CellTitle: UILabel!
-    @IBOutlet weak var Label_CellTime: UILabel!
-    @IBOutlet weak var Label_CellLocation: UILabel!
+    @IBOutlet weak var Label_Title: UILabel!
+    @IBOutlet weak var Label_StartTime: UILabel!
+    @IBOutlet weak var Label_Location: UILabel!
 }
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var cellContent = ["Physics III",
+    var cell_Title = ["Physics III",
                        "Calculus I",
                        "Software Engineering",
                        "Operating System",
                        "iOS Development",
                        "Computer Graphics",]
     
-    var cellContentLocation = ["RB5 - 5301",
+    var cell_ID = ["999999",
+                   "999999",
+                   "999999",
+                   "999999",
+                   "999999",
+                   "999999",]
+    
+    var cell_Location = ["RB5 - 5301",
                            "RB3 - 3309",
                            "30 Years Building - 502",
                            "30 Years Building - 502",
                            "30 Years Building - 402",
                            "30 Years Building - 501",]
     
-    var cellContentTime = ["08:00",
-                             "09:30",
-                             "11:00",
-                             "13:00",
-                             "14:30",
-                             "16:00",]
+    var cell_StartTime = ["08:00",
+                          "09:30",
+                          "11:00",
+                          "13:00",
+                          "14:30",
+                          "16:00",]
     
-    var valueToPass:String!
+    var cell_EndTime = ["9:30",
+                        "10:00",
+                        "12:30",
+                        "14:30",
+                        "16:00",
+                        "17:30",]
+    
+    var valueToPass_Title:String!
+    var valueToPass_Location:String!
+    var valueToPass_StartTime:String!
+    var valueToPass_EndTime:String!
+    var valueToPass_ID:String!
     
     
     //Outlet Area
@@ -104,23 +122,29 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     */
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellContent.count
+        return cell_Title.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubjectCell", for: indexPath) as! SubjectTableViewCell
-        cell.Label_CellTitle?.text = cellContent[indexPath.row]
-        cell.Label_CellTime?.text = cellContentTime[indexPath.row]
-        cell.Label_CellLocation?.text = cellContentLocation[indexPath.row]
+        
+        cell.Label_Title?.text = cell_Title[indexPath.row]
+        cell.Label_StartTime?.text = cell_StartTime[indexPath.row]
+        cell.Label_Location?.text = cell_Location[indexPath.row]
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let indexPath = tableView.indexPathForSelectedRow!
-        let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
+        let currentCell = tableView.cellForRow(at: indexPath)! as! SubjectTableViewCell
         
-        valueToPass = currentCell.textLabel?.text
+        valueToPass_Title = cell_Title[indexPath.row]
+        valueToPass_Location = cell_Location[indexPath.row]
+        valueToPass_StartTime = cell_StartTime[indexPath.row]
+        valueToPass_EndTime = cell_EndTime[indexPath.row]
+        valueToPass_ID = cell_ID[indexPath.row]
+        
         self .performSegue(withIdentifier: "Subject_Selected", sender: self)
     }
     
@@ -129,7 +153,11 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // get a reference to the second view controller
         if (segue.identifier == "Subject_Selected"){
             let SubjectViewController = segue.destination as! SubjectViewController
-            SubjectViewController.receivedData = valueToPass
+            SubjectViewController.receivedData_Title = valueToPass_Title
+            SubjectViewController.receivedData_Location = valueToPass_Location
+            SubjectViewController.receivedData_StartTime = valueToPass_StartTime
+            SubjectViewController.receivedData_EndTime = valueToPass_EndTime
+            SubjectViewController.receivedData_ID = valueToPass_ID
         }
     }
 }

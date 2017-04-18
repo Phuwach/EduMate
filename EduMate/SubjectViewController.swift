@@ -9,11 +9,32 @@
 import UIKit
 import MapKit
 
-class SubjectViewController: UIViewController, MKMapViewDelegate {
+class DetailTableViewCell: UITableViewCell {
+    @IBOutlet weak var Label_Title: UILabel!
+    @IBOutlet weak var Label_Detail: UILabel!
+}
+/*
+class EditDetailTableViewCell: UITableViewCell {
+    @IBOutlet weak var Label_Title: UILabel!
+    @IBOutlet weak var TextField_Detail: UITextField!
+}*/
 
-    var receivedData = ""
-    @IBOutlet weak var TextField_SubjectName: UITextField!
-    @IBOutlet weak var TextField_SubjectID: UITextField!
+class SubjectViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate {
+    
+    var UserEditting = false
+    
+    var receivedData_Title = ""
+    var receivedData_Location = ""
+    var receivedData_StartTime = ""
+    var receivedData_EndTime = ""
+    var receivedData_ID = ""
+    
+    var cell_Title = ["Name",
+                      "ID",
+                      "Time",
+                      "Location",]
+    
+    var cell_Detail = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +46,14 @@ class SubjectViewController: UIViewController, MKMapViewDelegate {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
-        TextField_SubjectName.text = "Name of " + String(receivedData)
-        TextField_SubjectID.text = "ID of " + String(receivedData)
+        cell_Detail.append(receivedData_Title)
+        cell_Detail.append(receivedData_ID)
+        cell_Detail.append(String(receivedData_StartTime) + " - " + String(receivedData_EndTime))
+        cell_Detail.append(receivedData_Location)
+        
+        //TextField_SubjectName.text = String(receivedData_Title)
+        //TextField_SubjectID.text = String(receivedData_ID)
+        //TextField_Time.text = String(receivedData_StartTime) + " - " + String(receivedData_EndTime)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +61,10 @@ class SubjectViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func Button_Edit(_ sender: Any) {
+        UserEditting = !UserEditting
+        //self.EditDetailTableView.isHidden = !EditDetailTableView.isHidden
+    }
 
     /*
     // MARK: - Navigation
@@ -44,5 +75,21 @@ class SubjectViewController: UIViewController, MKMapViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cell_Title.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailTableViewCell
+        cell.Label_Title?.text = cell_Title[indexPath.row]
+        cell.Label_Detail?.text = cell_Detail[indexPath.row]
+        /*
+        let Editcell = tableView.dequeueReusableCell(withIdentifier: "EditDetailCell", for: indexPath) as! EditDetailTableViewCell
+        Editcell.Label_Title?.text = cell_Title[indexPath.row]
+        Editcell.TextField_Detail?.text = cell_Detail[indexPath.row]
+        */
+        return cell
+    }
 
 }
