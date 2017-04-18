@@ -86,16 +86,16 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if(tableView == DetailTableView){
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailTableViewCell
-        cell.Label_Title?.text = cell_Title[indexPath.row]
-        cell.Label_Detail?.text = cell_Detail[indexPath.row]
-        return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailTableViewCell
+            cell.Label_Title?.text = cell_Title[indexPath.row]
+            cell.Label_Detail?.text = cell_Detail[indexPath.row]
+            return cell
         }
         else{
-        let cell2 = tableView.dequeueReusableCell(withIdentifier: "EditDetailCell", for: indexPath) as! EditDetailTableViewCell
-        cell2.Label_Title?.text = cell_Title[indexPath.row]
-        cell2.TextField_Detail?.text = cell_Detail[indexPath.row]
-        return cell2
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "EditDetailCell", for: indexPath) as! EditDetailTableViewCell
+            cell2.Label_Title?.text = cell_Title[indexPath.row]
+            cell2.TextField_Detail?.text = cell_Detail[indexPath.row]
+            return cell2
         }
     }
 }
