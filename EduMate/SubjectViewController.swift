@@ -13,13 +13,16 @@ class DetailTableViewCell: UITableViewCell {
     @IBOutlet weak var Label_Title: UILabel!
     @IBOutlet weak var Label_Detail: UILabel!
 }
-/*
+
 class EditDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var Label_Title: UILabel!
     @IBOutlet weak var TextField_Detail: UITextField!
-}*/
+}
 
 class SubjectViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate {
+    
+    @IBOutlet weak var DetailTableView: UITableView!
+    @IBOutlet weak var EditDetailTableView: UITableView!
     
     var UserEditting = false
     
@@ -63,7 +66,7 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func Button_Edit(_ sender: Any) {
         UserEditting = !UserEditting
-        //self.EditDetailTableView.isHidden = !EditDetailTableView.isHidden
+        self.EditDetailTableView.isHidden = !self.EditDetailTableView.isHidden
     }
 
     /*
@@ -77,19 +80,22 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
     */
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cell_Title.count
+        return self.cell_Title.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if(tableView == DetailTableView){
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailTableViewCell
         cell.Label_Title?.text = cell_Title[indexPath.row]
         cell.Label_Detail?.text = cell_Detail[indexPath.row]
-        /*
-        let Editcell = tableView.dequeueReusableCell(withIdentifier: "EditDetailCell", for: indexPath) as! EditDetailTableViewCell
-        Editcell.Label_Title?.text = cell_Title[indexPath.row]
-        Editcell.TextField_Detail?.text = cell_Detail[indexPath.row]
-        */
         return cell
+        }
+        else{
+        let cell2 = tableView.dequeueReusableCell(withIdentifier: "EditDetailCell", for: indexPath) as! EditDetailTableViewCell
+        cell2.Label_Title?.text = cell_Title[indexPath.row]
+        cell2.TextField_Detail?.text = cell_Detail[indexPath.row]
+        return cell2
+        }
     }
-
 }
