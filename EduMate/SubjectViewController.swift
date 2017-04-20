@@ -24,6 +24,10 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var DetailTableView: UITableView!
     @IBOutlet weak var EditDetailTableView: UITableView!
     
+    @IBOutlet weak var DetailNavBar: UINavigationBar!
+    @IBOutlet weak var EditDetailNavBar: UINavigationBar!
+    
+    
     var UserEditting = false
     
     var receivedData_Title = ""
@@ -38,6 +42,8 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
                       "Location",]
     
     var cell_Detail = [String]()
+    
+    var cell_TextField = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,10 +71,29 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     @IBAction func Button_Edit(_ sender: Any) {
-        UserEditting = !UserEditting
-        self.EditDetailTableView.isHidden = !self.EditDetailTableView.isHidden
+        EditDetailTableView.reloadData()
+        self.EditDetailTableView.isHidden = false
+        self.EditDetailNavBar.isHidden = false
+        self.DetailTableView.isHidden = true
+        self.DetailNavBar.isHidden = true
     }
 
+    @IBAction func Button_Save(_ sender: Any) {
+        
+        //save here
+        
+        DetailTableView.reloadData()
+        self.EditDetailTableView.isHidden = true
+        self.EditDetailNavBar.isHidden = true
+        self.DetailTableView.isHidden = false
+        self.DetailNavBar.isHidden = false
+    }
+    @IBAction func Button_Cancel(_ sender: Any) {
+        self.EditDetailTableView.isHidden = true
+        self.EditDetailNavBar.isHidden = true
+        self.DetailTableView.isHidden = false
+        self.DetailNavBar.isHidden = false
+    }
     /*
     // MARK: - Navigation
 
@@ -95,6 +120,7 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "EditDetailCell", for: indexPath) as! EditDetailTableViewCell
             cell2.Label_Title?.text = cell_Title[indexPath.row]
             cell2.TextField_Detail?.text = cell_Detail[indexPath.row]
+            
             return cell2
         }
     }

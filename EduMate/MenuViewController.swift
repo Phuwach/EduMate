@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class SubjectTableViewCell: UITableViewCell {
     @IBOutlet weak var Label_Title: UILabel!

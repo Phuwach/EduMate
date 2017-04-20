@@ -16,9 +16,12 @@
 		7107FC461E89779F003F6E93 /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107FC451E89779F003F6E93 /* SubjectViewController.swift */; };
 		7107FC481E898A46003F6E93 /* xx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7107FC471E898A46003F6E93 /* xx.jpg */; };
 		7164C69B1E8BAC6800028E75 /* flat-face-icon-23.png in Resources */ = {isa = PBXBuildFile; fileRef = 7164C69A1E8BAC6800028E75 /* flat-face-icon-23.png */; };
+		719AF6751EA79E7000017AD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 719AF6741EA79E7000017AD4 /* GoogleService-Info.plist */; };
+		F36BE408F626E43595CD7C01 /* Pods_EduMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40F1E5258518A28A449E670 /* Pods_EduMate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F812460D452CE1FD1BDA2B3 /* Pods-EduMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EduMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-EduMate/Pods-EduMate.release.xcconfig"; sourceTree = "<group>"; };
 		7100673D1E89504F0074CFED /* EduMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		710067401E89504F0074CFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		710067421E89504F0074CFED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +33,9 @@
 		7107FC451E89779F003F6E93 /* SubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
 		7107FC471E898A46003F6E93 /* xx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = xx.jpg; path = ../../../xx.jpg; sourceTree = "<group>"; };
 		7164C69A1E8BAC6800028E75 /* flat-face-icon-23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flat-face-icon-23.png"; path = "../../../flat-face-icon-23.png"; sourceTree = "<group>"; };
+		719AF6741EA79E7000017AD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B40F1E5258518A28A449E670 /* Pods_EduMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EduMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CACC742E10C595B643037A63 /* Pods-EduMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EduMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EduMate/Pods-EduMate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F36BE408F626E43595CD7C01 /* Pods_EduMate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CF1F56629330D9214C9B343 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CACC742E10C595B643037A63 /* Pods-EduMate.debug.xcconfig */,
+				1F812460D452CE1FD1BDA2B3 /* Pods-EduMate.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		54FD7C7B16345F9039AACDEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B40F1E5258518A28A449E670 /* Pods_EduMate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		710067341E89504F0074CFED = {
 			isa = PBXGroup;
 			children = (
 				7100673F1E89504F0074CFED /* EduMate */,
 				7100673E1E89504F0074CFED /* Products */,
+				4CF1F56629330D9214C9B343 /* Pods */,
+				54FD7C7B16345F9039AACDEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +98,7 @@
 				7100674C1E89504F0074CFED /* Info.plist */,
 				7107FC431E897180003F6E93 /* MenuViewController.swift */,
 				7107FC451E89779F003F6E93 /* SubjectViewController.swift */,
+				719AF6741EA79E7000017AD4 /* GoogleService-Info.plist */,
 			);
 			path = EduMate;
 			sourceTree = "<group>";
@@ -83,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7100674F1E89504F0074CFED /* Build configuration list for PBXNativeTarget "EduMate" */;
 			buildPhases = (
+				03F06750B70F925EC53AB9EA /* [CP] Check Pods Manifest.lock */,
 				710067391E89504F0074CFED /* Sources */,
 				7100673A1E89504F0074CFED /* Frameworks */,
 				7100673B1E89504F0074CFED /* Resources */,
+				8BD64E7E62CC8CD710961F78 /* [CP] Embed Pods Frameworks */,
+				D08738414262EFA64990158F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -141,10 +171,59 @@
 				710067481E89504F0074CFED /* Assets.xcassets in Resources */,
 				7164C69B1E8BAC6800028E75 /* flat-face-icon-23.png in Resources */,
 				710067461E89504F0074CFED /* Main.storyboard in Resources */,
+				719AF6751EA79E7000017AD4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03F06750B70F925EC53AB9EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8BD64E7E62CC8CD710961F78 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EduMate/Pods-EduMate-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D08738414262EFA64990158F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EduMate/Pods-EduMate-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		710067391E89504F0074CFED /* Sources */ = {
@@ -273,9 +352,14 @@
 		};
 		710067501E89504F0074CFED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CACC742E10C595B643037A63 /* Pods-EduMate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 876M3Q56X3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EduMate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = th.co.phuwach.EduMate;
@@ -286,9 +370,14 @@
 		};
 		710067511E89504F0074CFED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F812460D452CE1FD1BDA2B3 /* Pods-EduMate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 876M3Q56X3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EduMate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = th.co.phuwach.EduMate;
