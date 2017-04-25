@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EduMate/MenuViewController.swift"
+            timestampString = "514813855.194146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "Subjects_Load_All()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EduMate.MenuViewController.Subjects_Load () -&gt; ()"
+                  moduleName = "EduMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Phuwach/Desktop/Projects/EduMate/EduMate/MenuViewController.swift"
+                  timestampString = "514392903.255753"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "1301">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EduMate.MenuViewController.(Subjects_Load () -&gt; ()).(closure #1)"
+                  moduleName = "EduMate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Phuwach/Desktop/Projects/EduMate/EduMate/MenuViewController.swift"
+                  timestampString = "514392903.263852"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

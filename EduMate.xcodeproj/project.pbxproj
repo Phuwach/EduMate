@@ -15,6 +15,7 @@
 		7107FC441E897180003F6E93 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107FC431E897180003F6E93 /* MenuViewController.swift */; };
 		7107FC461E89779F003F6E93 /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7107FC451E89779F003F6E93 /* SubjectViewController.swift */; };
 		7107FC481E898A46003F6E93 /* xx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7107FC471E898A46003F6E93 /* xx.jpg */; };
+		7156B88E1EA8BBDD009B0B6C /* EditSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156B88D1EA8BBDD009B0B6C /* EditSubjectViewController.swift */; };
 		7164C69B1E8BAC6800028E75 /* flat-face-icon-23.png in Resources */ = {isa = PBXBuildFile; fileRef = 7164C69A1E8BAC6800028E75 /* flat-face-icon-23.png */; };
 		719AF6751EA79E7000017AD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 719AF6741EA79E7000017AD4 /* GoogleService-Info.plist */; };
 		F36BE408F626E43595CD7C01 /* Pods_EduMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40F1E5258518A28A449E670 /* Pods_EduMate.framework */; };
@@ -32,6 +33,7 @@
 		7107FC431E897180003F6E93 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		7107FC451E89779F003F6E93 /* SubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
 		7107FC471E898A46003F6E93 /* xx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = xx.jpg; path = ../../../xx.jpg; sourceTree = "<group>"; };
+		7156B88D1EA8BBDD009B0B6C /* EditSubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSubjectViewController.swift; sourceTree = "<group>"; };
 		7164C69A1E8BAC6800028E75 /* flat-face-icon-23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flat-face-icon-23.png"; path = "../../../flat-face-icon-23.png"; sourceTree = "<group>"; };
 		719AF6741EA79E7000017AD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B40F1E5258518A28A449E670 /* Pods_EduMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EduMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +101,7 @@
 				7107FC431E897180003F6E93 /* MenuViewController.swift */,
 				7107FC451E89779F003F6E93 /* SubjectViewController.swift */,
 				719AF6741EA79E7000017AD4 /* GoogleService-Info.plist */,
+				7156B88D1EA8BBDD009B0B6C /* EditSubjectViewController.swift */,
 			);
 			path = EduMate;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7156B88E1EA8BBDD009B0B6C /* EditSubjectViewController.swift in Sources */,
 				710067431E89504F0074CFED /* ViewController.swift in Sources */,
 				7107FC461E89779F003F6E93 /* SubjectViewController.swift in Sources */,
 				7107FC441E897180003F6E93 /* MenuViewController.swift in Sources */,

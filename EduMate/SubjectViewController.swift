@@ -8,6 +8,8 @@
 
 import UIKit
 import MapKit
+import FirebaseDatabase
+import Firebase
 
 class DetailTableViewCell: UITableViewCell {
     @IBOutlet weak var Label_Title: UILabel!
@@ -27,23 +29,23 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var DetailNavBar: UINavigationBar!
     @IBOutlet weak var EditDetailNavBar: UINavigationBar!
     
+    @IBOutlet weak var Label_Head_SubjectName: UILabel!
+    @IBOutlet weak var Label_Head_SubjectID: UILabel!
     
-    var UserEditting = false
+    var databaseRef : FIRDatabaseReference!
     
-    var receivedData_Title = ""
-    var receivedData_Location = ""
-    var receivedData_StartTime = ""
-    var receivedData_EndTime = ""
-    var receivedData_ID = ""
+    var SelectedSubjectID = ""
     
-    var cell_Title = ["Name",
-                      "ID",
-                      "Time",
+    var Title_Array = ["Subject Name",
+                      "Subject ID",
+                      "Begin at",
+                      "End at",
+                      "Repeat Every",
                       "Location",]
     
-    var cell_Detail = [String]()
+    var Detail_Array : [String] = [String]()
     
-    var cell_TextField = [String]()
+    var cell_Detail = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,45 +57,70 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
-        cell_Detail.append(receivedData_Title)
-        cell_Detail.append(receivedData_ID)
-        cell_Detail.append(String(receivedData_StartTime) + " - " + String(receivedData_EndTime))
-        cell_Detail.append(receivedData_Location)
+        print("[SUBJECT] Subject ID: \(SelectedSubjectID)")
+        IndividualSubject_Load()
+        print("[SUBJECT] Download Complete.")
         
-        //TextField_SubjectName.text = String(receivedData_Title)
-        //TextField_SubjectID.text = String(receivedData_ID)
-        //TextField_Time.text = String(receivedData_StartTime) + " - " + String(receivedData_EndTime)
+        let when = DispatchTime.now() + 1 // change ... to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.IndividualSubject_Load()
+            print("[SUBJECT] 1 Second Auto Refresh Complete.")
+        }
+    
+        //Table Refreshing
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(Subject_Refresh), for: .valueChanged)
+        
+        // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
+        DetailTableView.refreshControl = refreshControl
+        
     }
 
+    func IndividualSubject_Load(){
+        self.Detail_Array.removeAll()
+        //print("[SUBJECT] Array Cleared. Ready For Download.")
+        
+        databaseRef = FIRDatabase.database().reference()
+        databaseRef.child("Subjects").queryOrdered(byChild: "ID").queryEqual(toValue: SelectedSubjectID).observe(.childAdded, with: {(snapshot) in
+            
+            let snapshotValue = snapshot.value as! NSDictionary
+            
+            let Name_DL = snapshotValue["Name"] as? String
+            self.Detail_Array.append(Name_DL!)
+            
+            let ID_DL = snapshotValue["ID"] as? String
+            self.Detail_Array.append(ID_DL!)
+            
+            let StartTime_DL = snapshotValue["TimeStart"] as? String
+            self.Detail_Array.append(StartTime_DL!)
+            
+            let EndTime_DL = snapshotValue["TimeEnd"] as? String
+            self.Detail_Array.append(EndTime_DL!)
+            
+            let WeeklyRepeat_DL = snapshotValue["WeeklyRepeat"] as? String
+            self.Detail_Array.append(WeeklyRepeat_DL!)
+            
+            let Location_DL = snapshotValue["Location"] as? String
+            self.Detail_Array.append(Location_DL!)
+            
+            self.DetailTableView.reloadData()
+            //dump(self.Detail_Array)
+            
+            self.Label_Head_SubjectName.text = Name_DL?.uppercased()
+            self.Label_Head_SubjectID.text = ID_DL?.uppercased()
+            
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func Button_Edit(_ sender: Any) {
-        EditDetailTableView.reloadData()
-        self.EditDetailTableView.isHidden = false
-        self.EditDetailNavBar.isHidden = false
-        self.DetailTableView.isHidden = true
-        self.DetailNavBar.isHidden = true
+        self .performSegue(withIdentifier: "Subject_Edit", sender: self)
     }
 
-    @IBAction func Button_Save(_ sender: Any) {
-        
-        //save here
-        
-        DetailTableView.reloadData()
-        self.EditDetailTableView.isHidden = true
-        self.EditDetailNavBar.isHidden = true
-        self.DetailTableView.isHidden = false
-        self.DetailNavBar.isHidden = false
-    }
-    @IBAction func Button_Cancel(_ sender: Any) {
-        self.EditDetailTableView.isHidden = true
-        self.EditDetailNavBar.isHidden = true
-        self.DetailTableView.isHidden = false
-        self.DetailNavBar.isHidden = false
-    }
     /*
     // MARK: - Navigation
 
@@ -105,23 +132,41 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
     */
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.cell_Title.count
+        return self.Title_Array.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if(tableView == DetailTableView){
             let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailTableViewCell
-            cell.Label_Title?.text = cell_Title[indexPath.row]
-            cell.Label_Detail?.text = cell_Detail[indexPath.row]
+            cell.Label_Title?.text = Title_Array[indexPath.row]
+            cell.Label_Detail?.text = Detail_Array[indexPath.row]
             return cell
         }
         else{
             let cell2 = tableView.dequeueReusableCell(withIdentifier: "EditDetailCell", for: indexPath) as! EditDetailTableViewCell
-            cell2.Label_Title?.text = cell_Title[indexPath.row]
-            cell2.TextField_Detail?.text = cell_Detail[indexPath.row]
+            cell2.Label_Title?.text = Title_Array[indexPath.row]
+            cell2.TextField_Detail?.text = Detail_Array[indexPath.row]
             
             return cell2
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // get a reference to the second view controller
+        if (segue.identifier == "Subject_Edit"){
+            let EditSubjectViewController = segue.destination as! EditSubjectViewController
+            EditSubjectViewController.SelectedSubjectID = SelectedSubjectID
+        }
+    }
+    
+    func Subject_Refresh(refreshControl: UIRefreshControl) {
+        IndividualSubject_Load()
+        
+        // somewhere in your code you might need to call:
+        refreshControl.endRefreshing()
+        print("[SUBJECT] Pull Refresh Complete.")
+    }
+    
 }
