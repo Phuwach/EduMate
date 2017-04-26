@@ -129,7 +129,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //print("[MENU] Items Array Cleared. Ready For Download.")
         
         databaseRef = FIRDatabase.database().reference()
-        databaseRef.child("Subjects").queryOrdered(byChild: "WeeklyRepeat").queryEqual(toValue: "%Wed%").observe(.childAdded, with: {(snapshot) in
+        databaseRef.child("Subjects").queryOrdered(byChild: "Name").observe(.childAdded, with: {(snapshot) in
             
             let snapshotValue = snapshot.value as! NSDictionary
             
@@ -170,7 +170,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //print("[MENU] Items Array Cleared. Ready For Download.")
         
         databaseRef = FIRDatabase.database().reference()
-        databaseRef.child("Subjects").queryOrdered(byChild: "ID").observe(.childAdded, with: {(snapshot) in
+        databaseRef.child("Subjects").queryOrdered(byChild: "TimeStart").observe(.childAdded, with: {(snapshot) in
             
             let snapshotValue = snapshot.value as! NSDictionary
             

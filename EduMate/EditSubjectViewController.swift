@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import MapKit
 import FirebaseDatabase
 import Firebase
 
-class EditSubjectViewController: UIViewController {
+class EditSubjectViewController: UIViewController, MKMapViewDelegate{
 
     @IBOutlet weak var Name_TF: UITextField!
     @IBOutlet weak var ID_TF: UITextField!
     @IBOutlet weak var StartTime_TF: UITextField!
     @IBOutlet weak var EndTime_TF: UITextField!
     @IBOutlet weak var Location_TF: UITextField!
+    @IBOutlet weak var MapLatitude_TF: UITextField!
+    @IBOutlet weak var MapLongtitude_TF: UITextField!
     
     @IBOutlet weak var SW_Mon: UISwitch!
     @IBOutlet weak var SW_Tue: UISwitch!
@@ -25,6 +28,8 @@ class EditSubjectViewController: UIViewController {
     @IBOutlet weak var SW_Fri: UISwitch!
     @IBOutlet weak var SW_Sat: UISwitch!
     @IBOutlet weak var SW_Sun: UISwitch!
+    
+    @IBOutlet weak var MapView: MKMapView!
     
     var databaseRef : FIRDatabaseReference!
     var SelectedSubjectID = ""
@@ -36,6 +41,7 @@ class EditSubjectViewController: UIViewController {
         if (SelectedSubjectID != "ADDNEW"){
             IndividualSubject_Load()
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +64,7 @@ class EditSubjectViewController: UIViewController {
     }
     
     @IBAction func Button_Back(_ sender: Any) {
-        if (SelectedSubjectID != "ADDNEW"){
+        if (SelectedSubjectID == "ADDNEW"){
             performSegue(withIdentifier: "Return_MenuView", sender: sender)
         }
         else{
@@ -101,6 +107,42 @@ class EditSubjectViewController: UIViewController {
             if (WeeklyRepeat_DL!.contains("Fri")){ self.SW_Fri.isOn = true }
             if (WeeklyRepeat_DL!.contains("Sat")){ self.SW_Sat.isOn = true }
             if (WeeklyRepeat_DL!.contains("Sun")){ self.SW_Sun.isOn = true }
+            
+            //Map Setup
+            let latitude_DL = snapshotValue["MapLatitude"] as? String
+            let latitude : CLLocationDegrees = Double(latitude_DL!)!
+            
+            let longtitude_DL = snapshotValue["MapLongtitude"] as? String
+            let longtitude : CLLocationDegrees =  Double(longtitude_DL!)!
+            
+            let latDelta : CLLocationDegrees = 0.05
+            let longDelta : CLLocationDegrees = 0.05
+            
+            let span:MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
+            
+            let coordinates : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
+            
+            let region : MKCoordinateRegion = MKCoordinateRegion(center: coordinates, span: span)
+            
+            self.MapView.setRegion(region,animated: true)
+            
+            //pin point
+            let annotation = MKPointAnnotation()
+            annotation.title = "Location"
+            annotation.subtitle = "is Here"
+            annotation.coordinate = coordinates
+             
+            self.MapView.addAnnotation(annotation)
+            
+            self.MapLatitude_TF.text = String(coordinates.latitude)
+            self.MapLongtitude_TF.text = String(coordinates.longitude)
+            
+            let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(EditSubjectViewController.longpress(gestureReconizer:)))
+            
+            uilpgr.minimumPressDuration = 1
+            self.MapView.addGestureRecognizer(uilpgr)
+
+            
             
         })
         print("[EDIT] Subject Details Download Complete.")
@@ -163,6 +205,9 @@ class EditSubjectViewController: UIViewController {
             updateRef.child("Subjects").child(childname).child("TimeEnd").setValue(self.EndTime_TF.text)
             updateRef.child("Subjects").child(childname).child("Location").setValue(self.Location_TF.text)
             updateRef.child("Subjects").child(childname).child("WeeklyRepeat").setValue(WeeklyRepeat_)
+            updateRef.child("Subjects").child(childname).child("MapLatitude").setValue(self.MapLatitude_TF.text)
+            updateRef.child("Subjects").child(childname).child("MapLongtitude").setValue(self.MapLongtitude_TF.text)
+            
             
         })
         print("[EDIT] Subject Details Update Complete.")
@@ -181,6 +226,8 @@ class EditSubjectViewController: UIViewController {
             deleteRef.child("Subjects").child(childname).child("TimeEnd").removeValue()
             deleteRef.child("Subjects").child(childname).child("Location").removeValue()
             deleteRef.child("Subjects").child(childname).child("WeeklyRepeat").removeValue()
+            deleteRef.child("Subjects").child(childname).child("MapLatitude").removeValue()
+            deleteRef.child("Subjects").child(childname).child("MapLongtitude").removeValue()
             
         })
         print("[EDIT] Subject Delete Complete.")
@@ -237,12 +284,16 @@ class EditSubjectViewController: UIViewController {
         let TimeStart_ = StartTime_TF.text
         let TimeEnd_ = EndTime_TF.text
         let Location_ = Location_TF.text
+        let MapLatitude_ = MapLatitude_TF.text
+        let MapLongtitude_ = MapLongtitude_TF.text
         let post : [String: AnyObject] = ["Name" : Name_ as AnyObject,
                                           "ID" : ID_ as AnyObject,
                                           "TimeStart" : TimeStart_ as AnyObject,
                                           "TimeEnd" : TimeEnd_ as AnyObject,
                                           "Location" : Location_ as AnyObject,
-                                          "WeeklyRepeat" : WeeklyRepeat_ as AnyObject]
+                                          "WeeklyRepeat" : WeeklyRepeat_ as AnyObject,
+                                          "MapLatitude" : MapLatitude_ as AnyObject,
+                                          "MapLongtitude" : MapLongtitude_ as AnyObject]
         let databaseRef = FIRDatabase.database().reference()
         databaseRef.child("Subjects").childByAutoId().setValue(post)
         print("[EDIT] New Subject Upload Complete.")
@@ -265,6 +316,23 @@ class EditSubjectViewController: UIViewController {
             let SubjectViewController = segue.destination as! SubjectViewController
             SubjectViewController.SelectedSubjectID = SelectedSubjectID
         }
+    }
+    
+    func longpress ( gestureReconizer : UIGestureRecognizer){
+        let touchPoint = gestureReconizer.location(in: self.MapView)
+        let coordinate = MapView.convert(touchPoint, toCoordinateFrom: self.MapView)
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = coordinate
+        annotation.title = "Location"
+        annotation.subtitle = "is Here"
+        
+        MapLatitude_TF.text = String(coordinate.latitude)
+        MapLongtitude_TF.text = String(coordinate.longitude)
+        
+        let allAnnotations = MapView.annotations
+        MapView.removeAnnotations(allAnnotations)
+        MapView.addAnnotation(annotation)
     }
     
 }

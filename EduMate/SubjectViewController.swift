@@ -32,6 +32,8 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var Label_Head_SubjectName: UILabel!
     @IBOutlet weak var Label_Head_SubjectID: UILabel!
     
+    @IBOutlet weak var MapView: MKMapView!
+    
     var databaseRef : FIRDatabaseReference!
     
     var SelectedSubjectID = ""
@@ -41,7 +43,9 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
                       "Begin at",
                       "End at",
                       "Repeat Every",
-                      "Location",]
+                      "Location",
+                      "Latitude",
+                      "Longtitude"]
     
     var Detail_Array : [String] = [String]()
     
@@ -74,6 +78,7 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
         // this is the replacement of implementing: "collectionView.addSubview(refreshControl)"
         DetailTableView.refreshControl = refreshControl
         
+        
     }
 
     func IndividualSubject_Load(){
@@ -103,11 +108,44 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
             let Location_DL = snapshotValue["Location"] as? String
             self.Detail_Array.append(Location_DL!)
             
+            let MapLatitude_DL = snapshotValue["MapLatitude"] as? String
+            self.Detail_Array.append(MapLatitude_DL!)
+            
+            let MapLongtitude_DL = snapshotValue["MapLongtitude"] as? String
+            self.Detail_Array.append(MapLongtitude_DL!)
+            
             self.DetailTableView.reloadData()
             //dump(self.Detail_Array)
             
             self.Label_Head_SubjectName.text = Name_DL?.uppercased()
             self.Label_Head_SubjectID.text = ID_DL?.uppercased()
+            
+            //Map
+            //Map Setup
+            let latitude_DL = snapshotValue["MapLatitude"] as? String
+            let latitude : CLLocationDegrees = Double(latitude_DL!)!
+            
+            let longtitude_DL = snapshotValue["MapLongtitude"] as? String
+            let longtitude : CLLocationDegrees =  Double(longtitude_DL!)!
+            
+            let latDelta : CLLocationDegrees = 0.05
+            let longDelta : CLLocationDegrees = 0.05
+            
+            let span:MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
+            
+            let coordinates : CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
+            
+            let region : MKCoordinateRegion = MKCoordinateRegion(center: coordinates, span: span)
+            
+            self.MapView.setRegion(region,animated: true)
+            
+            //pin point
+            let annotation = MKPointAnnotation()
+            annotation.title = "Location"
+            annotation.subtitle = "is Here"
+            annotation.coordinate = coordinates
+            
+            self.MapView.addAnnotation(annotation)
             
         })
     }
