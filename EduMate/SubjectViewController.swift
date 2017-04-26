@@ -207,4 +207,14 @@ class SubjectViewController: UIViewController, UITableViewDataSource, UITableVie
         print("[SUBJECT] Pull Refresh Complete.")
     }
     
+    func createAlert(titleText : String, messageText : String){
+        let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            
+            alert.dismiss(animated: true, completion: nil)
+        
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }

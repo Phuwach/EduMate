@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		710067411E89504F0074CFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710067401E89504F0074CFED /* AppDelegate.swift */; };
-		710067431E89504F0074CFED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710067421E89504F0074CFED /* ViewController.swift */; };
+		710067431E89504F0074CFED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710067421E89504F0074CFED /* LoginViewController.swift */; };
 		710067461E89504F0074CFED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 710067441E89504F0074CFED /* Main.storyboard */; };
 		710067481E89504F0074CFED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 710067471E89504F0074CFED /* Assets.xcassets */; };
 		7100674B1E89504F0074CFED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 710067491E89504F0074CFED /* LaunchScreen.storyboard */; };
@@ -17,8 +17,9 @@
 		7107FC481E898A46003F6E93 /* xx.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7107FC471E898A46003F6E93 /* xx.jpg */; };
 		7156B88E1EA8BBDD009B0B6C /* EditSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7156B88D1EA8BBDD009B0B6C /* EditSubjectViewController.swift */; };
 		7164C69B1E8BAC6800028E75 /* flat-face-icon-23.png in Resources */ = {isa = PBXBuildFile; fileRef = 7164C69A1E8BAC6800028E75 /* flat-face-icon-23.png */; };
-		7183E7581EB09974001AC417 /* EduMate_Login.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7183E7571EB09974001AC417 /* EduMate_Login.jpg */; };
+		717E098A1EB111C800BBF92B /* EduMate_Login3-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 717E09891EB111C800BBF92B /* EduMate_Login3-2.jpg */; };
 		7183E75A1EB09AB9001AC417 /* EduMate Icon Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7183E7591EB09AB9001AC417 /* EduMate Icon Logo.png */; };
+		7183E75C1EB0B2CB001AC417 /* move-to-next_318-80203.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7183E75B1EB0B2CB001AC417 /* move-to-next_318-80203.jpg */; };
 		719AF6751EA79E7000017AD4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 719AF6741EA79E7000017AD4 /* GoogleService-Info.plist */; };
 		F36BE408F626E43595CD7C01 /* Pods_EduMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B40F1E5258518A28A449E670 /* Pods_EduMate.framework */; };
 /* End PBXBuildFile section */
@@ -27,7 +28,7 @@
 		1F812460D452CE1FD1BDA2B3 /* Pods-EduMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EduMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-EduMate/Pods-EduMate.release.xcconfig"; sourceTree = "<group>"; };
 		7100673D1E89504F0074CFED /* EduMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EduMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		710067401E89504F0074CFED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		710067421E89504F0074CFED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		710067421E89504F0074CFED /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		710067451E89504F0074CFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		710067471E89504F0074CFED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7100674A1E89504F0074CFED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,8 +38,9 @@
 		7107FC471E898A46003F6E93 /* xx.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = xx.jpg; path = ../../../xx.jpg; sourceTree = "<group>"; };
 		7156B88D1EA8BBDD009B0B6C /* EditSubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditSubjectViewController.swift; sourceTree = "<group>"; };
 		7164C69A1E8BAC6800028E75 /* flat-face-icon-23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flat-face-icon-23.png"; path = "../../../flat-face-icon-23.png"; sourceTree = "<group>"; };
-		7183E7571EB09974001AC417 /* EduMate_Login.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EduMate_Login.jpg; sourceTree = "<group>"; };
+		717E09891EB111C800BBF92B /* EduMate_Login3-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "EduMate_Login3-2.jpg"; sourceTree = "<group>"; };
 		7183E7591EB09AB9001AC417 /* EduMate Icon Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EduMate Icon Logo.png"; sourceTree = "<group>"; };
+		7183E75B1EB0B2CB001AC417 /* move-to-next_318-80203.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "move-to-next_318-80203.jpg"; sourceTree = "<group>"; };
 		719AF6741EA79E7000017AD4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B40F1E5258518A28A449E670 /* Pods_EduMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EduMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CACC742E10C595B643037A63 /* Pods-EduMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EduMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EduMate/Pods-EduMate.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,11 +97,12 @@
 			isa = PBXGroup;
 			children = (
 				710067401E89504F0074CFED /* AppDelegate.swift */,
-				710067421E89504F0074CFED /* ViewController.swift */,
+				710067421E89504F0074CFED /* LoginViewController.swift */,
 				710067441E89504F0074CFED /* Main.storyboard */,
 				7183E7591EB09AB9001AC417 /* EduMate Icon Logo.png */,
-				7183E7571EB09974001AC417 /* EduMate_Login.jpg */,
+				717E09891EB111C800BBF92B /* EduMate_Login3-2.jpg */,
 				7164C69A1E8BAC6800028E75 /* flat-face-icon-23.png */,
+				7183E75B1EB0B2CB001AC417 /* move-to-next_318-80203.jpg */,
 				7107FC471E898A46003F6E93 /* xx.jpg */,
 				710067471E89504F0074CFED /* Assets.xcassets */,
 				710067491E89504F0074CFED /* LaunchScreen.storyboard */,
@@ -176,13 +179,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7100674B1E89504F0074CFED /* LaunchScreen.storyboard in Resources */,
+				7183E75C1EB0B2CB001AC417 /* move-to-next_318-80203.jpg in Resources */,
 				7107FC481E898A46003F6E93 /* xx.jpg in Resources */,
 				710067481E89504F0074CFED /* Assets.xcassets in Resources */,
-				7183E7581EB09974001AC417 /* EduMate_Login.jpg in Resources */,
 				7164C69B1E8BAC6800028E75 /* flat-face-icon-23.png in Resources */,
 				710067461E89504F0074CFED /* Main.storyboard in Resources */,
 				719AF6751EA79E7000017AD4 /* GoogleService-Info.plist in Resources */,
 				7183E75A1EB09AB9001AC417 /* EduMate Icon Logo.png in Resources */,
+				717E098A1EB111C800BBF92B /* EduMate_Login3-2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7156B88E1EA8BBDD009B0B6C /* EditSubjectViewController.swift in Sources */,
-				710067431E89504F0074CFED /* ViewController.swift in Sources */,
+				710067431E89504F0074CFED /* LoginViewController.swift in Sources */,
 				7107FC461E89779F003F6E93 /* SubjectViewController.swift in Sources */,
 				7107FC441E897180003F6E93 /* MenuViewController.swift in Sources */,
 				710067411E89504F0074CFED /* AppDelegate.swift in Sources */,

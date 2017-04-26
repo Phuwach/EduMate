@@ -30,6 +30,7 @@ class EditSubjectViewController: UIViewController, MKMapViewDelegate{
     @IBOutlet weak var SW_Sun: UISwitch!
     
     @IBOutlet weak var MapView: MKMapView!
+    @IBOutlet weak var navbar: UINavigationItem!
     
     var databaseRef : FIRDatabaseReference!
     var SelectedSubjectID = ""
@@ -40,6 +41,10 @@ class EditSubjectViewController: UIViewController, MKMapViewDelegate{
         // Do any additional setup after loading the view.
         if (SelectedSubjectID != "ADDNEW"){
             IndividualSubject_Load()
+            self.navbar.title = "Edit Subject"
+        }
+        if (SelectedSubjectID == "ADDNEW"){
+            self.navbar.title = "Add New Subject"
         }
         
     }
@@ -50,31 +55,30 @@ class EditSubjectViewController: UIViewController, MKMapViewDelegate{
     }
     
     @IBAction func Button_Save(_ sender: Any) {
+        if((Name_TF.text == "") || (ID_TF.text == "") || (StartTime_TF.text == "") || (EndTime_TF.text == "") || (Location_TF.text == "") || (MapLatitude_TF.text == "") || (MapLongtitude_TF.text == "")){
+            createAlertSolo(titleText: "Can not do action", messageText: "Please fill all missing information.")
+        }
+        else {
+            
         if(ID_TF.text == SelectedSubjectID){
             //Update Data
-            Subject_Update()
-            performSegue(withIdentifier: "Return_SubjectView", sender: sender)
+            createAlert(titleText: "Save changes", messageText: "Are you sure you want to save your changes to this subject?", type: "Save")
         }
         else {
             //add new Data
-            Subject_Add()
-            performSegue(withIdentifier: "Return_MenuView", sender: sender)
+            createAlert(titleText: "Add new subject", messageText: "Are you sure you want to add new subject?", type: "Add")
+            }
+            
         }
         
     }
     
     @IBAction func Button_Back(_ sender: Any) {
-        if (SelectedSubjectID == "ADDNEW"){
-            performSegue(withIdentifier: "Return_MenuView", sender: sender)
-        }
-        else{
-            performSegue(withIdentifier: "Return_SubjectView", sender: sender)
-        }
+        createAlert(titleText: "Discard", messageText: "Are you sure you want to discard all changes you have done?", type: "Back")
     }
     
     @IBAction func Button_Delete(_ sender: Any) {
-        Subject_Delete()
-        performSegue(withIdentifier: "Return_MenuView", sender: sender)
+        createAlert(titleText: "Delete", messageText: "Are you sure you want to delete this subject? You can't undo this action.", type: "Delete")
     }
 
     func IndividualSubject_Load(){
@@ -333,6 +337,50 @@ class EditSubjectViewController: UIViewController, MKMapViewDelegate{
         let allAnnotations = MapView.annotations
         MapView.removeAnnotations(allAnnotations)
         MapView.addAnnotation(annotation)
+    }
+    
+    func createAlert(titleText : String, messageText : String, type : String){
+        let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (action) in
+            
+            if(type == "Add"){
+                self.Subject_Add()
+                self.performSegue(withIdentifier: "Return_MenuView", sender: self)
+            }
+            if(type == "Update"){
+                self.Subject_Update()
+                self.performSegue(withIdentifier: "Return_SubjectView", sender: self)
+            }
+            if(type == "Delete"){
+                self.Subject_Delete()
+                self.performSegue(withIdentifier: "Return_MenuView", sender: self)
+            }
+            if(type == "Back"){
+                if (self.SelectedSubjectID == "ADDNEW"){
+                    self.performSegue(withIdentifier: "Return_MenuView", sender: self)
+                }
+                else{
+                    self.performSegue(withIdentifier: "Return_SubjectView", sender: self)
+                }
+            }
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func createAlertSolo(titleText : String, messageText : String){
+        let alert = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+            
+            alert.dismiss(animated: true, completion: nil)
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
